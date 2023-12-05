@@ -1,5 +1,5 @@
 let tentativas = 1;
-const numeroMaximo = 100;
+const numeroMaximo = 1000;
 let quantidadeJogos = 1;
 let vitorias = 0;
 let totalTentativas = 0;
@@ -9,6 +9,11 @@ gerarNumAleatorio()
 imprimirNumSecreto()
 
 //funções
+function limparCampo(){
+    chute = document.querySelector('input');
+    chute.value = '';
+}
+
 function gerarNumAleatorio(){
     return numSecreto = parseInt(Math.random()*numeroMaximo+1);
 }
@@ -62,6 +67,7 @@ function novoJogo(){
     imprimirNumSecreto();
     quantidadeJogos++;
     frases ('h2', `Este é seu jogo de número ${quantidadeJogos}.`);
+    limparCampo();
 }
 
 function chutar(){
@@ -84,6 +90,7 @@ function chutar(){
                     alert('Errou, tente um número mais baixo.');
                 }
                 tentativas++
+                limparCampo();
             }
         
     }
